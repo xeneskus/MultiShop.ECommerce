@@ -7,7 +7,7 @@ namespace MultiShop.Order.Persistence.Context
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=NIRVANA\\SQLEXPRESS05;initial Catalog=MultiShopOrderDb;integrated Security=true;TrustServerCertificate=true;");
+            optionsBuilder.UseSqlServer("Server=localhost,1440;initial Catalog=MultiShopOrderDb; User=sa; Password=123456aA*");
 
         }
         public DbSet<Address> Addresses { get; set; }
