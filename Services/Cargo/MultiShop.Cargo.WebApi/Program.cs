@@ -18,6 +18,8 @@ builder.Services.AddScoped<ICargoCompanyDal, EfCargoCompanyDal>();
 builder.Services.AddScoped<ICargoCompanyService, CargoCompanyManager>();
 builder.Services.AddScoped<ICargoCustomerDal, EfCargoCustomerDal>();
 builder.Services.AddScoped<ICargoCustomerService, CargoCustomerManager>();
+builder.Services.AddScoped<ICargoDetailDal, EfCargoDetailDal>();
+builder.Services.AddScoped<ICargoDetailService, CargoDetailManager>();
 
 var app = builder.Build();
 
