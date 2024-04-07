@@ -8,9 +8,12 @@
 
   <ItemGroup>
     <Folder Include="Abstract\" />
-    <Folder Include="Concrete\" />
     <Folder Include="EntityFramework\" />
     <Folder Include="Repositories\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MultiShop.Cargo.EntityLayer\MultiShop.Cargo.EntityLayer.csproj" />
   </ItemGroup>
 
 </Project>
