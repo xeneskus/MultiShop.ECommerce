@@ -11,4 +11,8 @@
     <Folder Include="Concrete\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MultiShop.Cargo.DataAccessLayer\MultiShop.Cargo.DataAccessLayer.csproj" />
+  </ItemGroup>
+
 </Project>
