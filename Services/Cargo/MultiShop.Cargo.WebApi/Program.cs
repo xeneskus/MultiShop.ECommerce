@@ -20,7 +20,8 @@ builder.Services.AddScoped<ICargoCustomerDal, EfCargoCustomerDal>();
 builder.Services.AddScoped<ICargoCustomerService, CargoCustomerManager>();
 builder.Services.AddScoped<ICargoDetailDal, EfCargoDetailDal>();
 builder.Services.AddScoped<ICargoDetailService, CargoDetailManager>();
-
+builder.Services.AddScoped<ICargoOperationDal, EfCargoOperationDal>();
+builder.Services.AddScoped<ICargoOperationService, CargoOperationManager>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
