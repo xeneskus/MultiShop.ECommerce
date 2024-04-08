@@ -16,7 +16,6 @@
     <Folder Include="Controllers\" />
     <Folder Include="Dtos\" />
     <Folder Include="LoginServices\" />
-    <Folder Include="Settings\" />
     <Folder Include="Services\" />
   </ItemGroup>
 
