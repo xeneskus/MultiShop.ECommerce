@@ -1,8 +1,7 @@
 ﻿
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/AdminLayout/Index.cshtml";
+    Layout = "~/Views/UILayout/_UILayout.cshtml";
 }
 
-<h1>Index</h1>
-
+@await Component.InvokeAsync("_CarouselDefaultComponentPartial")
