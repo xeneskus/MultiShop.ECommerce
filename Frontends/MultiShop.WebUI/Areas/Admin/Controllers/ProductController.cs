@@ -72,5 +72,16 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
             }
             return View();
         }
+        [Route("DeleteProduct/{id}")]
+        public async Task<IActionResult> DeleteProduct(string id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.DeleteAsync("http://localhost:7075/api/Products?id=" + id);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index", "Product", new { area = "Admin" });
+            }
+            return View();
+        }
     }
 }
