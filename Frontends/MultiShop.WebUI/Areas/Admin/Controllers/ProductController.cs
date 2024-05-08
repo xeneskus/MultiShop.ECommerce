@@ -18,32 +18,50 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
         {
             _httpClientFactory = httpClientFactory;
         }
-        [Route("Index")]
-        public async Task<IActionResult> Index()
+
+        void ProductViewBagList()
         {
             ViewBag.v1 = "Ana Sayfa";
             ViewBag.v2 = "Ürünler";
             ViewBag.v3 = "Ürün Listesi";
             ViewBag.v0 = "Ürün İşlemleri";
+        }
+        [Route("Index")]
+        public async Task<IActionResult> Index()
+        {
+            ProductViewBagList();
 
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("http://localhost:7075/api/Products");
+            var responseMessage = await client.GetAsync("http://localhost:7075/api/Products/ProductListWithCategory");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<ResultProductDto>>(jsonData);
+                var values = JsonConvert.DeserializeObject<List<ResultProductWithCategoryDto>>(jsonData);
                 return View(values);
             }
             return View();
         }
+        [Route("ProductListWithCategory")]
+        public async Task<IActionResult> ProductListWithCategory()
+        {
+            ProductViewBagList();
+
+            //var client = _httpClientFactory.CreateClient();
+            //var responseMessage = await client.GetAsync("https://localhost:7070/api/Products/ProductListWithCategory");
+            //if (responseMessage.IsSuccessStatusCode)
+            //{
+            //    var jsonData = await responseMessage.Content.ReadAsStringAsync();
+            //    var values = JsonConvert.DeserializeObject<List<ResultProductWithCategoryDto>>(jsonData);
+            //    return View(values);
+            //}
+            return View();
+        }
+
         [Route("CreateProduct")]
         [HttpGet]
         public async Task<IActionResult> CreateProduct()
         {
-            ViewBag.v1 = "Ana Sayfa";
-            ViewBag.v2 = "Ürünler";
-            ViewBag.v3 = "Ürün Listesi";
-            ViewBag.v0 = "Ürün İşlemleri";
+            ProductViewBagList();
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync("http://localhost:7075/api/Categories");
             var jsonData = await responseMessage.Content.ReadAsStringAsync();
@@ -88,11 +106,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> UpdateProduct(string id)
         {
-            ViewBag.v1 = "Ana Sayfa";
-            ViewBag.v2 = "Ürünler";
-            ViewBag.v3 = "Ürün Güncelleme Sayfası";
-            ViewBag.v0 = "Ürün İşlemleri";
-
+            ProductViewBagList();
 
             var client1 = _httpClientFactory.CreateClient();
             var responseMessage1 = await client1.GetAsync("http://localhost:7075/api/Categories");
