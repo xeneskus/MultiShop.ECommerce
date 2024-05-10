@@ -6,7 +6,7 @@ using MultiShop.Catalog.Settings;
 
 namespace MultiShop.Catalog.Services.FeatureSliderServices
 {
-    public class FeatureSliderService
+    public class FeatureSliderService : IFeatureSliderService
     {
         private readonly IMongoCollection<FeatureSlider> _featureSliderCollection;
         private readonly IMapper _mapper;
