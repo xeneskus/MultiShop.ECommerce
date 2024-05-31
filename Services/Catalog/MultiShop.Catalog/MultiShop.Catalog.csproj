@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <Folder Include="Dtos\FeatureSliderDtos\" />
+    <Folder Include="Dtos\FeatureDtos\" />
     <Folder Include="Dtos\ProductDetailDtos\" />
   </ItemGroup>
 
