@@ -1,4 +1,5 @@
-﻿
+﻿@model CreateRegisterDto
+
 @{
     Layout = null;
 }
@@ -34,29 +35,29 @@
                 <div class="form-group">
                     <div class="form-row form-row-1">
                         <label for="first_name">Adınız</label>
-                        <input type="text"  id="first_name" class="input-text">
+                        <input type="text" asp-for="Name" id="first_name" class="input-text">
                     </div>
                     <div class="form-row form-row-1">
                         <label for="last_name">Soyadınız</label>
-                        <input type="text"  id="last_name" class="input-text">
+                        <input type="text" asp-for="Surname" id="last_name" class="input-text">
                     </div>
                 </div>
                 <div class="form-row">
                     <label for="your_email">Email Adresi</label>
-                    <input type="text"  id="your_email" class="input-text" required pattern="[^@@]+@@[^@@]+.[a-zA-Z]{2,6}">
+                    <input type="text" asp-for="Email" id="your_email" class="input-text" required pattern="[^@@]+@@[^@@]+.[a-zA-Z]{2,6}">
                 </div>
                 <div class="form-row">
                     <label for="your_username">Kullanıcı Adınız</label>
-                    <input type="text"  id="your_username" class="input-text" required>
+                    <input type="text" asp-for="Username" id="your_username" class="input-text" required>
                 </div>
                 <div class="form-group">
                     <div class="form-row form-row-1 ">
                         <label for="password">Şifre</label>
-                        <input type="password" id="password" class="input-text" required>
+                        <input type="password" asp-for="Password" id="password" class="input-text" required>
                     </div>
                     <div class="form-row form-row-1">
                         <label for="comfirm-password">Şifre Tekrar</label>
-                        <input type="password" id="comfirm_password" class="input-text" required>
+                        <input type="password" asp-for="ConfirmPassword" id="comfirm_password" class="input-text" required>
                     </div>
                 </div>
                 
