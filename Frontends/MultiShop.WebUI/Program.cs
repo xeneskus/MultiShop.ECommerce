@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using MultiShop.WebUI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,7 +23,7 @@ builder.Services.AddHttpClient();
 builder.Services.AddControllersWithViews();
 
 
-
+builder.Services.AddScoped<ILoginService, LoginService>();
 
 var app = builder.Build();
 
