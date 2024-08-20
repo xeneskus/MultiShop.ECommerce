@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Handlers\" />
     <Folder Include="Services\CatalogServices\FeatureServices\" />
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
