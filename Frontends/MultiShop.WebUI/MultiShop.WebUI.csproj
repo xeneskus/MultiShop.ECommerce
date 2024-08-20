@@ -14,8 +14,6 @@
 
   <ItemGroup>
     <Folder Include="Services\CatalogServices\FeatureServices\" />
-    <Folder Include="Services\Concrete\" />
-    <Folder Include="Services\Interfaces\" />
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
