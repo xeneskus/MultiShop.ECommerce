@@ -28,6 +28,8 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         opt.Cookie.Name = "MultiShopCookie";
         opt.SlidingExpiration = true;
     });
+
+builder.Services.AddAccessTokenManagement();
 builder.Services.AddHttpContextAccessor();
 
 
