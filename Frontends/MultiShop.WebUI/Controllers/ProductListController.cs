@@ -14,12 +14,18 @@ namespace MultiShop.WebUI.Controllers
         }
         public IActionResult Index(string id)
         {
+            ViewBag.directory1 = "MultiShop";
+            ViewBag.directory2 = "Ana Sayfa";
+            ViewBag.directory3 = "Ürün Listesi";
             ViewBag.i = id;
             return View();
         }
 
         public IActionResult ProductDetail(string id)
         {
+            ViewBag.directory1 = "MultiShop";
+            ViewBag.directory2 = "Ana Sayfa";
+            ViewBag.directory3 = "Ürün Listesi";
             ViewBag.x = id;
             return View();
         }
