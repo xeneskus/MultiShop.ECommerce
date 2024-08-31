@@ -116,6 +116,11 @@ builder.Services.AddHttpClient<IProductDetailService, ProductDetailService>(opt 
 {
     opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}");
 }).AddHttpMessageHandler<ClientCredentialTokenHandler>();
+
+builder.Services.AddHttpClient<MultiShop.WebUI.Services.CommentServices.ICommentService, MultiShop.WebUI.Services.CommentServices.CommentService>(opt =>
+{
+    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Comment.Path}");
+}).AddHttpMessageHandler<ClientCredentialTokenHandler>();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
