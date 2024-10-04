@@ -7,11 +7,9 @@ namespace MultiShop.WebUI.Controllers
     public class DiscountController : Controller
     {
         private readonly IDiscountService _discountService;
-        private readonly IBasketService _basketService;
-        public DiscountController(IDiscountService discountService, IBasketService basketService)
+        public DiscountController(IDiscountService discountService)
         {
             _discountService = discountService;
-            _basketService = basketService;
         }
 
         [HttpGet]
