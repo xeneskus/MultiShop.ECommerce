@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Areas\User\Views\_ViewImports.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="IdentityModel.AspNetCore" Version="3.0.0" />
     <PackageReference Include="IdentityServer4.Storage" Version="4.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.32" />
@@ -23,6 +27,18 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Services\Catalog\MultiShop.Catalog\MultiShop.Catalog.csproj" />
     <ProjectReference Include="..\MultiShop.DtoLayer\MultiShop.DtoLayer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Areas\User\Views\_ViewImports.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Areas\User\Views\_ViewImports.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Areas\User\Views\_ViewImports.cshtml" />
   </ItemGroup>
 
 </Project>
