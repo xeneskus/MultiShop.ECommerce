@@ -24,6 +24,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<OrderContext>();
 
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+builder.Services.AddScoped(typeof(IOrderingRepository), typeof(OrderingRepository));
 builder.Services.AddApplicationService(builder.Configuration);
 
 
