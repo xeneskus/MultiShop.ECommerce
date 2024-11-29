@@ -19,6 +19,7 @@ using MultiShop.WebUI.Settings;
 using MultiShop.WebUI.Services.DiscountServices;
 using MultiShop.WebUI.Services.OrderServices.OrderOderingServices;
 using MultiShop.WebUI.Services.OrderServices.OrderAddressServices;
+using MultiShop.WebUI.Services.MessageServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -127,7 +128,10 @@ builder.Services.AddHttpClient<IAboutService, AboutService>(opt =>
 {
     opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}");
 }).AddHttpMessageHandler<ClientCredentialTokenHandler>();
-
+builder.Services.AddHttpClient<IMessageService, MessageService>(opt =>
+{
+    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Message.Path}");
+}).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
 builder.Services.AddHttpClient<IProductImageService, ProductImageService>(opt =>
 {
     opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}");
