@@ -25,6 +25,7 @@ using MultiShop.WebUI.Services.CargoServices.CargoCompanyServices;
 using MultiShop.WebUI.Services.CargoServices.CargoCustomerServices;
 using MultiShop.WebUI.Services.StatisticServices.CatalogStatisticServices;
 using MultiShop.WebUI.Services.StatisticServices.UserStatisticServices;
+using MultiShop.WebUI.Services.StatisticServices.DiscountStatisticServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -79,11 +80,18 @@ builder.Services.AddHttpClient<ICatalogStatisticService, CatalogStatisticService
 {
     opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}");
 }).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
+
+
 builder.Services.AddHttpClient<IUserStatisticService, UserStatisticService>(opt =>
 {
     opt.BaseAddress = new Uri(values.IdentityServerUrl);
 }).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
 
+
+builder.Services.AddHttpClient<IDiscountStatisticService, DiscountStatisticService>(opt =>
+{
+    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Discount.Path}");
+}).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
 
 builder.Services.AddHttpClient<IUserIdentityService, UserIdentityService>(opt =>
 {
