@@ -10,11 +10,13 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
     {
         private readonly ICatalogStatisticService _catalogStatisticService;
         private readonly IUserStatisticService _userStatisticService;
+        private readonly ICommentService _commentService;
 
-        public StatisticController(ICatalogStatisticService catalogStatisticService, IUserStatisticService userStatisticService)
+        public StatisticController(ICatalogStatisticService catalogStatisticService, IUserStatisticService userStatisticService, ICommentService commentService)
         {
             _catalogStatisticService = catalogStatisticService;
             _userStatisticService = userStatisticService;
+            _commentService = commentService;
         }
 
         public async Task<IActionResult> Index()
@@ -27,7 +29,9 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
 
             var getUserCount = await _userStatisticService.GetUsercount();
 
-
+            var getTotalCommentCount = await _commentService.GetTotalCommentCount();
+            var getActiveCommentCount = await _commentService.GetActiveCommentCount();
+            var getPassiveCommentCount = await _commentService.GetPAssiveCommentCount();
 
             ViewBag.getBrandCount = getBrandCount;
             ViewBag.getProductCount = getProductCount;
@@ -36,6 +40,10 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
             ViewBag.getMinPriceProductName = getMinPriceProductName;
 
             ViewBag.getUserCount = getUserCount;
+
+            ViewBag.getTotalCommentCount = getTotalCommentCount;
+            ViewBag.getActiveCommentCount = getActiveCommentCount;
+            ViewBag.getPassiveCommentCount = getPassiveCommentCount;
 
 
             return View();
